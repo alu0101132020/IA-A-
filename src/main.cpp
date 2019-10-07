@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
 
     grafo A(cadena);
 
-    A.write();
+    std::cout << A;
 
   }
   return 0;

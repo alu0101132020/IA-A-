@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class grafo
 {
@@ -19,7 +20,14 @@ class grafo
 
     grafo(std::string);
 
+    ~grafo();
 
-    void write(void);
+    std::ostream& write(std::ostream& os);
+
+    friend std::ostream& operator<<(std::ostream& os, grafo G)
+    {
+        G.write(os);
+        return os;
+    }
 
 };
