@@ -24,12 +24,12 @@
 
               fichero >> cost;
               if(cost > 0){
-                std::pair<unsigned int, float> dummy;
-                dummy.first = j;
-                dummy.second = cost;
-                m_incidencia.at(i).push_back(dummy);
-                dummy.first = i;
-                m_incidencia.at(j).push_back(dummy);
+                  std::pair<unsigned int, float> dummy;
+                  dummy.first = j;
+                  dummy.second = cost;
+                  m_incidencia.at(i).push_back(dummy);
+                  dummy.first = i;
+                  m_incidencia.at(j).push_back(dummy);
 
               }
 
