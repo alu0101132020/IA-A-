@@ -22,6 +22,7 @@ class grafo
 
     ~grafo();
 
+    unsigned int get_nodos();
     std::ostream& write(std::ostream& os);
 
     friend std::ostream& operator<<(std::ostream& os, grafo G)

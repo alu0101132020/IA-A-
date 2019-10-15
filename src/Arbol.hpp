@@ -8,9 +8,9 @@ class Arbol{
 
     grafo G;
 
-    std::vector<float>;
+    std::vector<float> v_h;
 
   public:
 
-    Arbol(std::string n_fichero1, std::string n_fichero2);
+    Arbol(std::string n_fichero, std::string n_fichero2);
 }

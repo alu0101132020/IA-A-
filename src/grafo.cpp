@@ -42,6 +42,11 @@
         }
     }
 
+    unsigned int get_nodos(){
+
+      return m_incidencia.size();
+    }
+
     grafo::~grafo(){}
 
 

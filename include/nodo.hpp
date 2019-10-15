@@ -12,12 +12,12 @@ class nodo{
 
   public:
 
-    nodo();
+    nodo(unsigned int ID_, nodo* padre_, unsigned int prof_, unsigned int heuristica_, unsigned int coste_);
 
-    int get_ID();
+    unsigned int get_ID();
     nodo* get_padre();
-    int get_profundidad();
-    int get_heuristica();
-    int get_coste()
+    unsigned int get_profundidad();
+    unsigned int get_heuristica();
+    unsigned int get_coste()
 
 }
