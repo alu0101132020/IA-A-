@@ -4,11 +4,11 @@ class nodo{
 
   private:
 
-    int ID;
+    unsigned int ID;
     nodo *padre;
-    int profundidad;
-    int heuristica;
-    int coste;
+    unsigned int profundidad;
+    float heuristica;
+    unsigned int coste;
 
   public:
 
