@@ -12,14 +12,19 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 all: A*_search
 
-$(ODIR)/main.o: $(ODIR)/main.cpp $(IDIR)/grafo.hpp $(IDIR)/Arbol.hpp
+$(ODIR)/main.o: $(ODIR)/main.cpp $(IDIR)/grafo.hpp $(IDIR)/Arbol.hpp $(IDIR)/nodo.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(ODIR)/nodo.o: $(ODIR)/nodo.cpp $(IDIR)/nodo.hpp
+			$(CC) -c -o $@ $< $(CFLAGS)
 
 $(ODIR)/grafo.o: $(ODIR)/grafo.cpp $(IDIR)/grafo.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-$(ODIR)/Arbol.o: $(ODIR)/Arbol.cpp $(IDIR)/Arbol.hpp $(IDIR)/grafo.hpp
+$(ODIR)/Arbol.o: $(ODIR)/Arbol.cpp $(IDIR)/Arbol.hpp $(IDIR)/grafo.hpp $(IDIR)/nodo.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
+
+
 
 
 A*_search: $(OBJ)
