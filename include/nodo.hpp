@@ -1,4 +1,4 @@
-
+#pragma once
 
 class nodo{
 
@@ -18,6 +18,6 @@ class nodo{
     nodo* get_padre();
     unsigned int get_profundidad();
     unsigned int get_heuristica();
-    unsigned int get_coste()
+    unsigned int get_coste();
 
-}
+};

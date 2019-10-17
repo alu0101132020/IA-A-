@@ -42,8 +42,7 @@
         }
     }
 
-    unsigned int get_nodos(){
-
+    unsigned int grafo::get_nodos(){
       return m_incidencia.size();
     }
 
