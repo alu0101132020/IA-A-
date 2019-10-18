@@ -12,7 +12,7 @@ class nodo{
 
   public:
 
-    nodo(unsigned int ID_, nodo* padre_, unsigned int prof_, unsigned int heuristica_, unsigned int coste_);
+    nodo(unsigned int ID_, nodo* padre_, unsigned int prof_, float heuristica_, unsigned int coste_);
 
     unsigned int get_ID();
     nodo* get_padre();

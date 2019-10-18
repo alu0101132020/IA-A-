@@ -1,6 +1,6 @@
 #include "nodo.hpp"
 
-  nodo::nodo(unsigned int ID_, nodo* padre_, unsigned int prof_, unsigned int heuristica_, unsigned int coste_): ID(ID_), profundidad(prof_), heuristica(heuristica_), coste(coste_){
+  nodo::nodo(unsigned int ID_, nodo* padre_, unsigned int prof_, float heuristica_, unsigned int coste_): ID(ID_), profundidad(prof_), heuristica(heuristica_), coste(coste_){
     padre = padre_;
   }
 

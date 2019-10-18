@@ -6,7 +6,7 @@ ODIR=../src
 
 .PHONY: all
 
-_OBJ = main.o grafo.o Arbol.o
+_OBJ = main.o nodo.o grafo.o Arbol.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
