@@ -1,7 +1,11 @@
 #include "nodo.hpp"
 
-  nodo::nodo(unsigned int ID_, nodo* padre_, unsigned int prof_, float heuristica_, unsigned int coste_): ID(ID_), profundidad(prof_), heuristica(heuristica_), coste(coste_){
+  nodo::nodo(unsigned int ID_, nodo* padre_, unsigned int prof_, float heuristica_, float coste_): ID(ID_), profundidad(prof_), heuristica(heuristica_), coste(coste_){
     padre = padre_;
+  }
+
+  nodo::nodo(void): ID(-1), profundidad(-1), heuristica(FLT_MAX), coste(FLT_MAX){
+    padre = nullptr;
   }
 
   unsigned int nodo::get_ID(){
@@ -16,10 +20,14 @@
     return profundidad;
   }
 
-  unsigned int nodo::get_heuristica(){
+  float nodo::get_heuristica(){
     return heuristica;
   }
 
-  unsigned int nodo::get_coste(){
+  float nodo::get_coste(){
     return coste;
+  }
+
+  float nodo::get_estimado(){
+    return coste+heuristica;
   }

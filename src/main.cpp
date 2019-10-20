@@ -1,15 +1,16 @@
 #include <iostream>
-#include "grafo.hpp"
+#include "Arbol.hpp"
 
 int main(int argc, char **argv) {
   if (argc == 2){
 
     std::string cadena = argv[1];
 
-    grafo A(cadena);
+    Arbol B(cadena);
 
-    std::cout << A;
-
+  }
+  else{
+    std::cout << "Introduzca un fichero válido." << std::endl;
   }
   return 0;
 }

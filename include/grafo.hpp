@@ -26,6 +26,8 @@ class grafo
 
     unsigned int get_nodos(void);
 
+    std::vector<std::pair<unsigned int, float> > get_v_sucesores(int i);
+
     friend std::ostream& operator<<(std::ostream& os, grafo G)
     {
         G.write(os);

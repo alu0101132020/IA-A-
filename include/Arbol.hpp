@@ -13,6 +13,8 @@ class Arbol{
 
     nodo* root;
 
+    std::vector<nodo> Generados;
+
   public:
 
     Arbol(std::string n_fichero);
@@ -20,4 +22,12 @@ class Arbol{
     void change_heuris(std::string n_fichero);
 
     void A_star_search(unsigned int ini, unsigned int fin, std::string heur);
+
+    nodo search(nodo N, unsigned int fin);
+
+    void generar(nodo N);
+
+    bool inspeccionar(nodo N, unsigned int fin);
+
+    unsigned int seleccionar(void);
 };

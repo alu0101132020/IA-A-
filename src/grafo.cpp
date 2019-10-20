@@ -60,3 +60,7 @@
       }
       return os;
     }
+
+    std::vector<std::pair<unsigned int, float> > grafo::get_v_sucesores(int i){
+      return m_incidencia.at(i);
+    }

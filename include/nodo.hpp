@@ -1,4 +1,6 @@
 #pragma once
+#include <climits>
+#include <cfloat>
 
 class nodo{
 
@@ -8,16 +10,18 @@ class nodo{
     nodo *padre;
     unsigned int profundidad;
     float heuristica;
-    unsigned int coste;
+    float coste;
 
   public:
 
-    nodo(unsigned int ID_, nodo* padre_, unsigned int prof_, float heuristica_, unsigned int coste_);
+    nodo(unsigned int ID_, nodo *padre_, unsigned int prof_, float heuristica_, float coste_);
+    nodo(void);
 
     unsigned int get_ID();
     nodo* get_padre();
     unsigned int get_profundidad();
-    unsigned int get_heuristica();
-    unsigned int get_coste();
+    float get_heuristica();
+    float get_coste();
+    float get_estimado();
 
 };
