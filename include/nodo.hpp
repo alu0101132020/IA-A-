@@ -1,6 +1,7 @@
 #pragma once
 #include <climits>
 #include <cfloat>
+#include <vector>
 
 class nodo{
 
@@ -18,10 +19,11 @@ class nodo{
     nodo(void);
 
     unsigned int get_ID();
-    nodo* get_padre();
+    nodo get_padre();
     unsigned int get_profundidad();
     float get_heuristica();
     float get_coste();
     float get_estimado();
+
 
 };

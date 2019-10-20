@@ -2,6 +2,7 @@
 
 #include "grafo.hpp"
 #include "nodo.hpp"
+#include <list>
 
 class Arbol{
 
@@ -13,7 +14,9 @@ class Arbol{
 
     nodo* root;
 
-    std::vector<nodo> Generados;
+    std::list<nodo> Generados;
+
+    std::vector<nodo> Explorados;
 
   public:
 
@@ -29,5 +32,8 @@ class Arbol{
 
     bool inspeccionar(nodo N, unsigned int fin);
 
-    unsigned int seleccionar(void);
+    nodo seleccionar(void);
+
+    std::vector<unsigned int> get_predecesores(nodo N);
+
 };

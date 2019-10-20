@@ -12,8 +12,8 @@
     return ID;
   }
 
-  nodo* nodo::get_padre(){
-    return padre;
+  nodo nodo::get_padre(){
+    return *padre;
   }
 
   unsigned int nodo::get_profundidad(){
