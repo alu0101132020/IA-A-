@@ -3,6 +3,7 @@
 #include "grafo.hpp"
 #include "nodo.hpp"
 #include <list>
+#include <stack>
 
 class Arbol{
 
@@ -36,4 +37,5 @@ class Arbol{
 
     std::vector<unsigned int> get_predecesores(nodo N);
 
+    void mostrar_camino(nodo N);  
 };

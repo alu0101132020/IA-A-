@@ -18,7 +18,7 @@
 
       else{
 
-          for(unsigned int i = 0 ; i < v_h.size(); i++){
+          for(unsigned int i = 0 ; i < G.get_nodos(); i++){
               fichero >> cost;
               if(cost > 0)
                   v_h.push_back(cost);
@@ -33,21 +33,29 @@
 
     void Arbol::A_star_search(unsigned int ini, unsigned int fin, std::string heur){                        //Se inicializa la búsqueda, poniendo el nodo de inicio, el final, y cargando el fichero de heurística.
       change_heuris(heur);
+      std::cout << v_h.size();
       nodo Ini(ini, root, 0, v_h.at(ini), 0);
       Generados.push_back(Ini);
       nodo result = search(Ini, fin);
+
     }
 
     nodo Arbol::search(nodo N, unsigned int fin){
+
+      std::cout << Generados.size();
+
       for(std::list<nodo>::iterator it = Generados.begin(); it != Generados.end(); ++it){             //Quito el nodo de la lista de hojas.
-          if ((*it).get_ID() == N.get_ID())
+          if ((*it).get_ID() == N.get_ID()){
               Generados.erase(it);
+              break;
+            }
       }
+
       if(!inspeccionar(N, fin)){                //Compruebo si el nodo es el final, si no, genero sus suscesores.
           generar(N);
           Explorados.at(N.get_ID()) = N;
 
-          nodo next = seleccionar();            //Sekecciono entre las hojas la más prometedora.
+          nodo next = seleccionar();            //Selecciono entre las hojas la más prometedora.
           search(next, fin);
       }
       return N;
@@ -68,7 +76,12 @@
 
       for(int i = 0; i < aux.size(); i++){                          //Se comprueba si los sucesores de N están entre los nodos prometedores (hojas),
           bool notnew = false;                                       //si están y son mejores, son sustituidos, y si no están, se añaden como hojas.
-          for(std::list<nodo>::iterator it = Generados.begin(); it != Generados.end(); ++it){
+          if((N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first)) < Explorados.at(i).get_estimado()){
+              nodo nuevo(aux.at(i).first, &N, N.get_profundidad() + 1, v_h.at(aux.at(i).first), N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first) );
+              Explorados.at(i) = nuevo;
+              notnew =  true;
+          }
+          /*for(std::list<nodo>::iterator it = Generados.begin(); it != Generados.end(); ++it){
               if((*it).get_ID() == aux.at(i).first){
                   notnew =  true;
                   if((*it).get_estimado() > (N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first) ) ){
@@ -76,7 +89,7 @@
                     (*it) = nuevo;
                   }
               }
-          }
+          }*/
           if (notnew == false){
               nodo nuevo(aux.at(i).first, &N, N.get_profundidad() + 1, v_h.at(aux.at(i).first), N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first) );
               Generados.push_back(nuevo);
@@ -104,10 +117,28 @@
 
     std::vector<unsigned int> Arbol::get_predecesores(nodo N){                  //Recorrido hasta la raíz del árbol para obtener los ID's que conforman el camino.
       std::vector<unsigned int> pred;
-      while(N.get_profundidad() > 0){
+      while(N.get_profundidad() >= 0){
           unsigned int aux = N.get_padre().get_ID();
           N = N.get_padre();
           pred.push_back(aux);
           }
       return pred;
+    }
+
+    void Arbol::mostrar_camino(nodo N){
+      std::stack<nodo> Pila;
+      float coste = 0;
+      while(N.get_profundidad() >= 0){
+          Pila.push(N);
+          N = N.get_padre();
+      }
+      std::cout << "El camino es: ";
+      while(!Pila.empty()){
+        nodo aux = Pila.top();
+        Pila.pop();
+        coste = aux.get_coste();
+        std::cout << aux.get_ID() << " -> ";
+      }
+      std::cout << "Destino" << std::endl;
+      std::cout << "Con coste " << coste << "unidades." << std::endl;
     }
