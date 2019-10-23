@@ -6,14 +6,13 @@ int main(int argc, char **argv) {
 
     // std::string cadena = argv[1];
 
+    std::string cadena = "Grafo1.txt";
 
-    std::string cadena = "Grafo2.txt";
-
-    std::string heur = "Grafo2Heuristica1.txt";
+    std::string heur = "Grafo1Heuristica1.txt";
 
     Arbol B(cadena);
 
-    B.A_star_search(1, 2, heur);
+    B.A_star_search(1, 6, heur);
   //
   // }
   // else{
