@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="IA_A_"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IA_A_">
+				<Option output="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/IA_A_.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 IA_A_"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IA_A_/fast">
+				<Option output="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/IA_A_.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 IA_A_/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/include/Arbol.hpp">
+			<Option target="IA_A_"/>
+		</Unit>
+		<Unit filename="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/include/grafo.hpp">
+			<Option target="IA_A_"/>
+		</Unit>
+		<Unit filename="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/include/nodo.hpp">
+			<Option target="IA_A_"/>
+		</Unit>
+		<Unit filename="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/src/Arbol.cpp">
+			<Option target="IA_A_"/>
+		</Unit>
+		<Unit filename="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/src/grafo.cpp">
+			<Option target="IA_A_"/>
+		</Unit>
+		<Unit filename="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/src/main.cpp">
+			<Option target="IA_A_"/>
+		</Unit>
+		<Unit filename="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/src/nodo.cpp">
+			<Option target="IA_A_"/>
+		</Unit>
+		<Unit filename="C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

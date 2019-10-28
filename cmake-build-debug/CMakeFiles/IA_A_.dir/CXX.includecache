@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/nodo.hpp
+climits
+-
+cfloat
+-
+vector
+-
+
+C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/src/nodo.cpp
+nodo.hpp
+C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/src/nodo.hpp
+

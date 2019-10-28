@@ -52,9 +52,9 @@
     std::ostream& grafo::write(std::ostream& os){
 
       for(unsigned int i = 0; i < nodos; i++){
-          os << i + 1 << ": ";
+          os << i << ": ";
           for (unsigned int j = 0; j < m_incidencia.at(i).size(); j++){
-              os << "[" << m_incidencia.at(i).at(j).first + 1 << ", " << m_incidencia.at(i).at(j).second << " ] \t";
+              os << "[" << m_incidencia.at(i).at(j).first << ", " << m_incidencia.at(i).at(j).second << " ] \t";
           }
           os << std::endl;
       }

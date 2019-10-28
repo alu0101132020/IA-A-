@@ -1,0 +1,3 @@
+C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/CMakeFiles/IA_A_.dir
+C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Manu/Documents/practicasuni/Inteligencia artificial/IA-A-/cmake-build-debug/CMakeFiles/rebuild_cache.dir

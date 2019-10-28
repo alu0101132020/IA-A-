@@ -9,17 +9,18 @@ class Arbol{
 
   private:
 
-    grafo G;
+
 
     std::vector<float> v_h;
 
     nodo* root;
 
-    std::list<nodo> Generados;
+    std::list<nodo*> Generados;
 
-    std::vector<nodo> Explorados;
 
   public:
+
+    grafo G;
 
     Arbol(std::string n_fichero);
 
@@ -27,15 +28,15 @@ class Arbol{
 
     void A_star_search(unsigned int ini, unsigned int fin, std::string heur);
 
-    nodo search(nodo N, unsigned int fin);
+    nodo* search(nodo* &N, unsigned int fin);
 
-    void generar(nodo N);
+    void generar(nodo* &N);
 
-    bool inspeccionar(nodo N, unsigned int fin);
+    bool inspeccionar(nodo* &N, unsigned int fin);
 
-    nodo seleccionar(void);
+    nodo* seleccionar(void);
 
-    std::vector<unsigned int> get_predecesores(nodo N);
+    std::vector<unsigned int> get_predecesores(nodo* &N);
 
-    void mostrar_camino(nodo N);  
+    void mostrar_camino(nodo* &N);
 };
