@@ -72,24 +72,24 @@
 
 
       for(int i = 0; i < aux.size(); i++){                              //Se eliminan de los posibles sucesores aquellos que son antecesores en el árbol de N
+          bool antecesor = false;
           for(int j = 0; j < pred.size(); j++){
               if(aux.at(i).first == pred.at(j)){
-                  aux.erase(aux.begin() + i);
-                  if(aux.size() == 0)                                   //En caso de que solo tenga un sucesor y este se elimine, para evitar errores.
-                   break;
+                  antecesor = true;
                 }
+          }
+          if (antecesor == false){
+            nodo *nuevo = new nodo(aux.at(i).first, N, N->get_profundidad() + 1, v_h.at(aux.at(i).first), N->get_coste() + aux.at(i).second);
+            Generados.push_back(nuevo);
           }
       }
 
-      for(int i = 0; i < aux.size(); i++){
-          nodo *nuevo = new nodo(aux.at(i).first, N, N->get_profundidad() + 1, v_h.at(aux.at(i).first), N->get_coste() + aux.at(i).second);
-          Generados.push_back(nuevo);                       //Se comprueba si los sucesores de N están entre los nodos prometedores (hojas),
+                      //Se comprueba si los sucesores de N están entre los nodos prometedores (hojas),
             // bool notnew = false;                                       //si están y son mejores, son sustituidos, y si no están, se añaden como hojas.
             // if((N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first)) < Explorados.at(i).get_estimado()){
             //     nodo nuevo(aux.at(i).first, &N, N.get_profundidad() + 1, v_h.at(aux.at(i).first), N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first) );
             //     Explorados.at(i) = nuevo;
             //     notnew =  true;
-            }
 
           /*for(std::list<nodo>::iterator it = Generados.begin(); it != Generados.end(); ++it){
               if((*it).get_ID() == aux.at(i).first){
@@ -117,7 +117,7 @@
       nodo *indice;
       std::list<nodo*>::iterator it;
       for( it = Generados.begin(); it != Generados.end(); ++it){
-          if((*it)->get_coste() < min_coste){
+          if((*it)->get_estimado() < min_coste){
               min_coste = (*it)->get_estimado();
               indice = (*it);
             }
