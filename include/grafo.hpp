@@ -16,6 +16,8 @@ class grafo
 
     unsigned int nodos;
 
+    unsigned int aristas;
+
     public:
 
     grafo(std::string);
@@ -33,5 +35,7 @@ class grafo
         G.write(os);
         return os;
     }
+
+    unsigned int get_aristas(void);
 
 };

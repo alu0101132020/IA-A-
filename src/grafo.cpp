@@ -5,6 +5,7 @@
 
     grafo::grafo(std::string n_fichero): m_incidencia(0), nodos (-1)
     {
+      aristas = 0;
       std::ifstream fichero;
       fichero.open(n_fichero);
       float cost;
@@ -30,6 +31,7 @@
                   m_incidencia.at(i).push_back(dummy);
                   dummy.first = i;
                   m_incidencia.at(j).push_back(dummy);
+                  aristas++;
 
               }
 
@@ -63,4 +65,8 @@
 
     std::vector<std::pair<unsigned int, float> > grafo::get_v_sucesores(int i){
       return m_incidencia.at(i);
+    }
+
+    unsigned int grafo::get_aristas(){
+      return aristas;
     }

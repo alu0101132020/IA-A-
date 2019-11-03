@@ -2,7 +2,7 @@
 
 
 
-    Arbol::Arbol(std::string n_fichero): G(n_fichero),  v_h(0), root(nullptr){
+    Arbol::Arbol(std::string n_fichero): G(n_fichero),  v_h(0), root(nullptr), n_generados(0), n_inspeccionados(0){
     }
 
     void Arbol::change_heuris(std::string n_fichero){                                             //Método para dado un fichero preparar el vector de heurística
@@ -34,15 +34,17 @@
 
     void Arbol::A_star_search(unsigned int ini, unsigned int fin, std::string heur){                        //Se inicializa la búsqueda, poniendo el nodo de inicio, el final, y cargando el fichero de heurística.
       ini --;
-      fin --;
+      fin --;                                                                                           //Se decrementan los índices para poder trabajar correctamente con la matriz de incidencia y se establece el número de nodos inspeccionados y generados a 0 (Aún no ha empezado la búsqueda)
+      n_inspeccionados = 0;
+      n_generados = 0;
       change_heuris(heur);
       nodo *Ini = new nodo(ini, root, 0, v_h.at(ini), 0);
       Generados.push_back(Ini);
 
-      nodo *result = search(Ini, fin);
-      // // std::cout << result.get_ID();
-      mostrar_camino(result);
+      nodo *result = search(Ini, fin);                                                                //Ya establecido el nodo origen y las heurística, se llama a la función para relizar la búsqueda propiamente dicha
 
+      mostrar_camino(result);
+      sacar_a_fichero(result, ini, fin);
     }
 
     nodo* Arbol::search(nodo* &N, unsigned int fin){
@@ -65,7 +67,7 @@
 
     void Arbol::generar(nodo* &N){
 
-                                          //Se generan los sucesores
+                                                                      //Se generan los sucesores
       std::vector<std::pair<unsigned int, float> > aux = G.get_v_sucesores(N->get_ID());           //Se busca en el grafo los sucesores directos del nodo N
       std::vector<unsigned int> pred = get_predecesores(N);                           //Se obtiene el vector con los id de los antecesores de N
 
@@ -81,34 +83,14 @@
           if (antecesor == false){
             nodo *nuevo = new nodo(aux.at(i).first, N, N->get_profundidad() + 1, v_h.at(aux.at(i).first), N->get_coste() + aux.at(i).second);
             Generados.push_back(nuevo);
+            n_generados ++;
           }
       }
 
-                      //Se comprueba si los sucesores de N están entre los nodos prometedores (hojas),
-            // bool notnew = false;                                       //si están y son mejores, son sustituidos, y si no están, se añaden como hojas.
-            // if((N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first)) < Explorados.at(i).get_estimado()){
-            //     nodo nuevo(aux.at(i).first, &N, N.get_profundidad() + 1, v_h.at(aux.at(i).first), N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first) );
-            //     Explorados.at(i) = nuevo;
-            //     notnew =  true;
-
-          /*for(std::list<nodo>::iterator it = Generados.begin(); it != Generados.end(); ++it){
-              if((*it).get_ID() == aux.at(i).first){
-                  notnew =  true;
-                  if((*it).get_estimado() > (N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first) ) ){
-                    nodo nuevo(aux.at(i).first, &N, N.get_profundidad() + 1, v_h.at(aux.at(i).first), N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first) );
-                    (*it) = nuevo;
-                  }
-              }
-          }*/
-          // if (notnew == false){
-          //     nodo nuevo(aux.at(i).first, &N, N.get_profundidad() + 1, v_h.at(aux.at(i).first), N.get_coste() + aux.at(i).second + v_h.at(aux.at(i).first) );
-          //     Generados.push_back(nuevo);
-          // }
-      // }
 
     }
 
-    bool Arbol::inspeccionar(nodo* &N, unsigned int fin){             //Se observa si el nodo N es el final.
+    bool Arbol::inspeccionar(nodo* &N, unsigned int fin){             //Se observa si el nodo N es el final y se suma  1 al número de nodos inspeccionados;
       return (N->get_ID() == fin);
     }
 
@@ -122,6 +104,7 @@
               indice = (*it);
             }
       }
+      n_inspeccionados ++;
       return indice;
     }
 
@@ -137,7 +120,12 @@
       return pred;
     }
 
-    void Arbol::mostrar_camino(nodo* &N){
+    bool fexists(const std::string& filename) {
+      std::ifstream ifile(filename.c_str());
+      return (bool)ifile;
+    }
+
+    void Arbol::mostrar_camino(nodo* &N){                                           //Mostramos el camino, para ello cogemos el nodo final, hacemos el recorrido hasta la raíz del árbol y vamos almacenando los nodos en una pila para después mostrar el camino inverso (desde el inicio hasta el final).
       std::stack<nodo*> Pila;
       nodo* naux = N;
       float coste = 0;
@@ -147,7 +135,8 @@
       }
       Pila.push(naux);
       naux = naux->get_padre();
-
+      std::cout << "Número de nodos:" << G.get_nodos() << std::endl;
+      std::cout << "Número de aristas:" << G.get_aristas() << std::endl;
       std::cout << "El camino es: ";
       while(!Pila.empty()){
         naux = Pila.top();
@@ -156,5 +145,59 @@
       }
       coste = naux->get_coste();
       std::cout << "Destino" << std::endl;
+
       std::cout << "Con coste " << coste << "unidades." << std::endl;
+      std::cout << "Número de nodos generados: " << n_generados << ".\nNúmero de nodos inspeccionados: " << n_inspeccionados << ".\n";
+    }
+
+
+    void Arbol::sacar_a_fichero(nodo* &N, unsigned int ini, unsigned int fin){
+      std::string n_fichero = "Export2.txt";
+      std::ofstream fichero;
+      if(!fexists(n_fichero)) {
+        fichero.open(n_fichero);
+        fichero << "Nodos" << "\t";
+        fichero << "Aristas" << "\t";
+        fichero << "N_Ini" << "\t";
+        fichero << "N_Fin" << "\t";
+        fichero << "Camino" << "\t\t\t\t\t";
+        fichero << "Distancia" << "\t";
+        fichero << "N_Generados" << "\t";
+        fichero << "N_Inspeccionados" << "\t" << std::endl;
+        fichero.close();
+      }
+
+      fichero.open(n_fichero, std::ios::app);
+      std::stack<nodo*> Pila;
+      nodo* naux = N;
+      float coste = 0;
+      while(naux->get_padre() != nullptr){
+          Pila.push(naux);
+          naux = naux->get_padre();
+      }
+      Pila.push(naux);
+      naux = naux->get_padre();
+      fichero << G.get_nodos() ;
+      fichero << "\t";
+      fichero << G.get_aristas();
+      fichero << "\t";
+      fichero << ini << "\t";
+      fichero << fin << "\t";
+
+      while(!Pila.empty()){
+        naux = Pila.top();
+        Pila.pop();
+        fichero << naux->get_ID() + 1 << " -> ";
+      }
+      coste = naux->get_coste();
+
+
+      fichero << "\t";
+      fichero << coste;
+      fichero << "\t";
+      fichero << n_generados;
+      fichero << "\t";
+      fichero << n_inspeccionados;
+      fichero << "\n";
+
     }

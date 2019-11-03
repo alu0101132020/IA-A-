@@ -1,0 +1,4 @@
+Nodos	Aristas	N_Ini	N_Fin	Camino					Distancia	N_Generados	N_Inspeccionados	
+15	19	0	7	1 -> 2 -> 4 -> 12 -> 5 -> 13 -> 8 -> 	43	90	51
+15	19	2	8	3 -> 4 -> 6 -> 9 -> 	19	30	17
+15	19	9	8	10 -> 6 -> 9 -> 	18	8	3

@@ -17,6 +17,8 @@ class Arbol{
 
     std::list<nodo*> Generados;
 
+    int n_generados, n_inspeccionados;
+
 
   public:
 
@@ -39,4 +41,6 @@ class Arbol{
     std::vector<unsigned int> get_predecesores(nodo* &N);
 
     void mostrar_camino(nodo* &N);
+
+    void sacar_a_fichero(nodo* &N, unsigned int ini, unsigned int fin);
 };
