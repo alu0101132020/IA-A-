@@ -19,10 +19,14 @@ class Arbol{
 
     int n_generados, n_inspeccionados;
 
+    std::vector<nodo*> Creados;
+
 
   public:
 
     grafo G;
+
+    ~Arbol();
 
     Arbol(std::string n_fichero);
 
@@ -43,4 +47,6 @@ class Arbol{
     void mostrar_camino(nodo* &N);
 
     void sacar_a_fichero(nodo* &N, unsigned int ini, unsigned int fin);
+
+
 };

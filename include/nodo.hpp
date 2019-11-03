@@ -25,5 +25,4 @@ class nodo{
     float get_coste();
     float get_estimado();
 
-
 };

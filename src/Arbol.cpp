@@ -40,6 +40,7 @@
       change_heuris(heur);
       nodo *Ini = new nodo(ini, root, 0, v_h.at(ini), 0);
       Generados.push_back(Ini);
+      Creados.push_back(Ini);
 
       nodo *result = search(Ini, fin);                                                                //Ya establecido el nodo origen y las heurística, se llama a la función para relizar la búsqueda propiamente dicha
 
@@ -83,7 +84,8 @@
           if (antecesor == false){
             nodo *nuevo = new nodo(aux.at(i).first, N, N->get_profundidad() + 1, v_h.at(aux.at(i).first), N->get_coste() + aux.at(i).second);
             Generados.push_back(nuevo);
-            n_generados ++;
+            Creados.push_back(nuevo);
+            n_generados++;
           }
       }
 
@@ -104,7 +106,7 @@
               indice = (*it);
             }
       }
-      n_inspeccionados ++;
+      n_inspeccionados++;
       return indice;
     }
 
@@ -201,3 +203,21 @@
       fichero << "\n";
 
     }
+
+    Arbol::~Arbol(){
+      unsigned int prof = -1;
+      for(int i = 0; i < Creados.size(); ++i){
+          if((Creados.at(i)->get_profundidad()) > prof){
+              prof = Creados.at(i)->get_profundidad();
+            }
+          }
+
+      for(int i = prof ; i >= 0; i--){
+          for(int j = 0; j < Creados.size(); ++j){
+              if(Creados.at(j)->get_profundidad() == i){
+                  delete Creados.at(j);
+                }
+      }
+
+    }
+  }
